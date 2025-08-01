@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #040918 0%, #091540 100%);
+  color: white;
+  font-family: sans-serif; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body.light {
+  background: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+  color: black; 
+}

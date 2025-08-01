@@ -1,0 +1,149 @@
+#extensions-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    gap: 4px;
+}
+
+.extension-card {
+    border: 1px solid #53596c;
+    border-radius: 20px;
+    padding: 12px;
+    margin: 4px;
+    background-color: #1f2535;
+    width: 360px;
+}
+
+.extension-card.light {
+    background-color: #ffffff;
+}
+
+.extension-card .card-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.extension-card .card-container .title-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.extension-card h3 {
+    color: #fff;
+}
+
+.extension-card h3.light {
+    color: #000;
+}
+
+.extension-card p {
+    color: #a2acce;
+    font-size: 16px;
+}
+
+.extension-card p.light {
+    color: #8d96b3;
+}
+
+.controls-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.controls-card button {
+    background-color: #1f2535;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #53596c;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.controls-card button:hover {
+    border-color: #ee5f51;
+}
+
+.controls-card button.light {
+    background-color: #edeeef;
+    color: #000;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    border-radius: 34px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #525868;
+    -webkit-transition: .4s;
+    transition: .4s;
+
+}
+
+.slider:before {
+    border-radius: 50%;
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 0px;
+    bottom: 2.5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #f25e59;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #f25e59;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+
+/*media query for responsiveness*/
+@media (max-width: 1300px) {
+    #extensions-container {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (max-width: 800px) {
+    #extensions-container {
+        grid-template-columns: auto;
+    }
+
+    .extension-card {
+        width: 320px;
+    }
+}

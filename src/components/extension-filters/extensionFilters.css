@@ -1,0 +1,41 @@
+.filters-nav{
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#filters button{
+    margin: 5px 5px;
+    background-color: #30364c;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 18px;
+    border-radius: 40px;
+    border: 1px solid #53596c;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#filters button.light{
+    background-color: #ffff;
+    color: black;
+}
+
+#filters button:hover{
+    border: 1px solid #ee5f51;
+}
+
+#filters button:focus{
+    background-color: #ee5f51;
+    color: black;
+    border: 1px solid #ee5f51;
+}
+
+/*media query for responsiveness*/
+@media (max-width: 1300px) {
+    .filters-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
