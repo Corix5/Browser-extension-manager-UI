@@ -20,3 +20,24 @@ body.light {
   background: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
   color: black; 
 }
+
+main {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  max-height: fit-content;
+}
+
+#no-extension-message {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: #888;
+}
+
+#no-extension-message.active {
+  display: block;
+}

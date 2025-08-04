@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 2%;
 }
 
 #filters button{
@@ -26,7 +27,7 @@
     border: 1px solid #ee5f51;
 }
 
-#filters button:focus{
+ #filters .filter-button.selected{
     background-color: #ee5f51;
     color: black;
     border: 1px solid #ee5f51;
