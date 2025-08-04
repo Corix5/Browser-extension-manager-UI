@@ -1,7 +1,6 @@
 export function applyTheme(isLight, themeIcon = null) {
   document.body.classList.toggle("light", isLight);
 
-  // Elementos estáticos
   const staticTargets = [
     document.querySelector(".extension-header"),
     document.querySelector(".header-toggle-btn"),
