@@ -12,7 +12,6 @@ export function applyTheme(isLight, themeIcon = null) {
     if (el) el.classList.toggle("light", isLight);
   });
 
-  // Elementos dinámicos
   document.querySelectorAll(".extension-card").forEach((card) => {
     card.classList.toggle("light", isLight);
     card.querySelectorAll("*").forEach((child) => {
