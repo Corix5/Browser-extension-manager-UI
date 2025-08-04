@@ -22,7 +22,6 @@ export function createHeader() {
   themeToggleBtn.appendChild(themeIcon);
   extensionHeader.appendChild(themeToggleBtn);
 
-  // === Al hacer clic: cambiar tema y guardar ===
   themeToggleBtn.addEventListener("click", () => {
     const isNowLight = !document.body.classList.contains("light");
     applyTheme(isNowLight, themeIcon);
