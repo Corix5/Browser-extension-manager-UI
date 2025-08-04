@@ -28,7 +28,6 @@ const renderCards = (extensionsToRender, currentFilterStatus) => {
     container.appendChild(card);
   });
 
-  // === Al cargar: aplicar el tema guardado ===
   const savedTheme = localStorage.getItem("theme");
   const isLightTheme = savedTheme === "light";
   applyTheme(isLightTheme, themeIcon);
