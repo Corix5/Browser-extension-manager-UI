@@ -8,21 +8,23 @@ let currentExtensions = [...extensions];
 const container = document.getElementById("extensions-container");
 const headerController = document.getElementById("extension-header-controller");
 const filters = document.getElementById("filters");
+let currentFilterStatus = "all";
 
-const onRemove = (id) => {
+const onRemove = (id, currentFilterStatus) => {
   currentExtensions = currentExtensions.filter((ext) => ext.id !== id);
-  renderCards(currentExtensions);
+  if(currentFilterStatus === "all") {
+    renderCards(currentExtensions, currentFilterStatus);
+  } else if(currentFilterStatus === "active") {
+    renderCards(filterByStatus("active"), currentFilterStatus);
+  } else{
+    renderCards(filterByStatus("inactive"), currentFilterStatus);
+  }
 };
 
-const toggleCheckbox = (id) => {
-  const ext = currentExtensions.find((e) => e.id === id);
-  if (ext) ext.isActive = !ext.isActive;
-};
-
-const renderCards = (extensionsToRender) => {
+const renderCards = (extensionsToRender, currentFilterStatus) => {  
   container.innerHTML = "";
   extensionsToRender.forEach((extension) => {
-    const card = createExtensionCard(extension, onRemove, toggleCheckbox);
+    const card = createExtensionCard(extension, onRemove, toggleCheckbox, currentFilterStatus);
     container.appendChild(card);
   });
 
@@ -30,7 +32,6 @@ const renderCards = (extensionsToRender) => {
   const savedTheme = localStorage.getItem("theme");
   const isLightTheme = savedTheme === "light";
   applyTheme(isLightTheme, themeIcon);
-  console.log("icono: " + themeIcon);
 };
 
 const filterByStatus = (status) => {
@@ -40,20 +41,39 @@ const filterByStatus = (status) => {
   );
 };
 
+const toggleCheckbox = (id, status) => {  
+  const ext = currentExtensions.find((e) => e.id === id);
+  if (ext) ext.isActive = !ext.isActive;
+  if (status === "active") {
+    renderCards(filterByStatus("active"), 'active');
+  } else if (status === "inactive") {
+    renderCards(filterByStatus("inactive"), 'inactive');
+  } else {
+    renderCards(currentExtensions, 'all');
+  }
+};
+
 const { extensionHeader, themeToggleBtn, themeIcon } = createHeader();
 
 headerController.appendChild(extensionHeader);
 
 filters.appendChild(
-  createExtensionFilter("All", () => renderCards(filterByStatus("all")))
+  createExtensionFilter("All", () => {
+    currentFilterStatus = "all";
+    renderCards(filterByStatus("all"), currentFilterStatus);
+  })
 );
 filters.appendChild(
-  createExtensionFilter("Active", () => renderCards(filterByStatus("active")))
+  createExtensionFilter("Active", () => {
+    currentFilterStatus = "active";
+    renderCards(filterByStatus("active"), currentFilterStatus);
+  })
 );
 filters.appendChild(
-  createExtensionFilter("Inactive", () =>
-    renderCards(filterByStatus("inactive"))
-  )
+  createExtensionFilter("Inactive", () => {
+    currentFilterStatus = "inactive";
+    renderCards(filterByStatus("inactive"), currentFilterStatus);
+  })
 );
 
-renderCards(currentExtensions);
+renderCards(currentExtensions, currentFilterStatus);

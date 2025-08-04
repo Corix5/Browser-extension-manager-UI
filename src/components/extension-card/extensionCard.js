@@ -1,4 +1,5 @@
-export function createExtensionCard(extension, onRemove, toogleCheckbox) {
+export function createExtensionCard(extension, onRemove, toogleCheckbox, currentFilterStatus) {
+  
   const card = document.createElement("div");
   card.classList.add("extension-card");
 
@@ -32,7 +33,7 @@ export function createExtensionCard(extension, onRemove, toogleCheckbox) {
   removeButton.type = "button";
   removeButton.textContent = "Remove";
   removeButton.addEventListener("click", () => {
-    onRemove(extension.id);
+    onRemove(extension.id, currentFilterStatus);
   });
 
   const isActive = document.createElement("label");
@@ -45,7 +46,7 @@ export function createExtensionCard(extension, onRemove, toogleCheckbox) {
   isActiveCheckbox.type = "checkbox";
   isActiveCheckbox.checked = extension.isActive;
   isActiveCheckbox.addEventListener("change", () => {
-    toogleCheckbox(extension.id);
+    toogleCheckbox(extension.id, currentFilterStatus);
   }); 
 
   const isActiveSpan = document.createElement("span");

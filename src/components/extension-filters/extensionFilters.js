@@ -1,8 +1,10 @@
-export function createExtensionFilter(text, filter) {
+export function createExtensionFilter(status, filter) {
   const filterButton = document.createElement('button');
   filterButton.classList.add('filter-button');
   filterButton.type = 'button';
-  filterButton.textContent = text;
+  filterButton.textContent = status;
+
+  filterButton.dataset.status = status;
 
   filterButton.addEventListener('click', () => {
     filter();
@@ -10,3 +12,4 @@ export function createExtensionFilter(text, filter) {
 
   return filterButton;
 }
+
