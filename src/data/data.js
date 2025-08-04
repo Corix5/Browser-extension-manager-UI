@@ -44,7 +44,7 @@ export const extensions = [
  {
     id: 7,
     title: "Markup Notes",
-    description: "Simulates various screen resolutions directly within the browser.",
+    description: "Create and manage annotated notes on any webpage.",
     logo: "../../assets/images/logo-markup-notes.svg",
     isActive: true
  },
